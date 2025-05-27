@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendWear - Catálogo</title>
+    <link rel="stylesheet" href="catalogo.css">
+    <link rel="icon" href="icon/clothing.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <div class="logo">TrendWear</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="catalogo-section">
+        <div class="overlay"></div>
+        <div class="catalogo-container">
+            <h1>Nosso Catálogo</h1>
+            <input type="text" id="busca" onkeyup="filtrarProdutos()" placeholder="Buscar produto..." class="filtro-busca">
+
+            <div class="produtos-grid">
+
+                <div class="produto" onclick="abrirProduto('Blazer Casual', 'img/roupa 1.jpg', 230.90, 'Um blazer estiloso para ocasiões formais e casuais.')">
+                    <img src="img/roupa 1.jpg" alt="blazer">
+                    <h3>Blazer Casual</h3>
+                    <p>R$ 230,90</p>
+                </div>
+
+                <div class="produto" onclick="abrirProduto('Jaqueta Social', 'img/roupa 2.jpg', 199.90, 'Jaqueta social elegante e confortável.')">
+                    <img src="img/roupa 2.jpg" alt="Jaqueta Social">
+                    <h3>Jaqueta Social</h3>
+                    <p>R$ 199,90</p>
+                </div>
+
+                <div class="produto" onclick="abrirProduto('Jaqueta Jeans', 'img/roupa 3.jpg', 189.90, 'Jaqueta jeans moderna, ideal para o dia a dia.')">
+                    <img src="img/roupa 3.jpg" alt="Jaqueta jeans">
+                    <h3>Jaqueta Jeans</h3>
+                    <p>R$ 189,90</p>
+                </div>
+
+                <div class="produto" onclick="abrirProduto('Camisa Verão', 'img/roupa 4.jpg', 120.90, 'Camisa leve e ideal para dias quentes.')">
+                    <img src="img/roupa 4.jpg" alt="Camisa Verão">
+                    <h3>Camisa Verão</h3>
+                    <p>R$ 120,90</p>
+                </div>
+
+                <div class="produto" onclick="abrirProduto('Camisa Básica', 'img/roupa 5.jpg', 59.90, 'Simples, confortável e essencial.')">
+                    <img src="img/roupa 5.jpg" alt="Camisa Básica">
+                    <h3>Camisa Básica</h3>
+                    <p>R$ 59,90</p>
+                </div>
+
+                <div class="produto" onclick="abrirProduto('Conjunto Social', 'img/roupa 6.jpg', 568.90, 'Conjunto completo para eventos formais.')">
+                    <img src="img/roupa 6.jpg" alt="Conjunto Social">
+                    <h3>Conjunto Social</h3>
+                    <p>R$ 568,90</p>
+                </div>
+
+                <div class="produto" onclick="abrirProduto('Calça Moletom', 'img/roupa 7.jpg', 299.90, 'Confortável e moderna para o dia a dia.')">
+                    <img src="img/roupa 7.jpg" alt="Calça Moletom">
+                    <h3>Calça Moletom</h3>
+                    <p>R$ 299,90</p>
+                </div>
+
+                <div class="produto" onclick="abrirProduto('Blazer Social', 'img/roupa 8.jpg', 189.90, 'Blazer sofisticado para ocasiões especiais.')">
+                    <img src="img/roupa 8.jpg" alt="Blazer Social">
+                    <h3>Blazer Social</h3>
+                    <p>R$ 189,90</p>
+                </div>
+
+                <div class="produto" onclick="abrirProduto('Camisa Suede', 'img/roupa 9.jpg', 139.90, 'Estilosa e com toque suave.')">
+                    <img src="img/roupa 9.jpg" alt="Camisa Suede">
+                    <h3>Camisa Suede</h3>
+                    <p>R$ 139,90</p>
+                </div>
+
+                <div class="produto" onclick="abrirProduto('Blusa Primavera', 'img/roupa 10.jpg', 149.90, 'Blusa floral perfeita para dias ensolarados.')">
+                    <img src="img/roupa 10.jpg" alt="Blusa Primavera">
+                    <h3>Blusa Primavera</h3>
+                    <p>R$ 149,90</p>
+                </div>
+
+                <div class="produto" onclick="abrirProduto('Vestido Primavera', 'img/roupa 11.jpg', 349.90, 'Vestido leve e romântico.')">
+                    <img src="img/roupa 11.jpg" alt="Vestido Primavera">
+                    <h3>Vestido Primavera</h3>
+                    <p>R$ 349,90</p>
+                </div>
+
+                <div class="produto" onclick="abrirProduto('Calça de Alfaiataria', 'img/roupa 12.jpg', 300.90, 'Calça de corte reto e caimento perfeito.')">
+                    <img src="img/roupa 12.jpg" alt="Calça de Alfaiataria">
+                    <h3>Calça de Alfaiataria</h3>
+                    <p>R$ 300,90</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Ícone flutuante do carrinho -->
+    <div class="icone-carrinho" onclick="mostrarCarrinho()">
+    🛒
+     <span id="quantidade-carrinho">0</span>
+    </div>
+
+    <!-- Painel do carrinho -->
+    <div id="painel-carrinho" class="carrinho-flutuante">
+    <h2>Seu Carrinho</h2>
+    <ul id="lista-carrinho"></ul>
+    <p>Total: R$ <span id="total-carrinho">0.00</span></p>
+     <button onclick="finalizarCompra()">Finalizar Compra</button>
+    </div>
+
+
+    <script src="catalogo.js"></script>
+
+    <script>
+        function abrirProduto(nome, imagem, preco, descricao) {
+            const produto = { nome, imagem, preco, descricao };
+            localStorage.setItem("produtoSelecionado", JSON.stringify(produto));
+            window.location.href = "produto.html";
+        }
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,256 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #5a5757;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: transparent;
+    z-index: 1000;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 20px; 
+    border-radius: 5px; 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.catalogo-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('img/pexels-godisable-jacob-226636-1154861.jpg') center/cover no-repeat fixed; 
+    background-size: cover;
+    background-attachment: fixed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.catalogo-container {
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.filtro-busca {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 20px auto;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.produto {
+    background: rgba(63, 63, 63, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.produto img {
+    width: 100%;
+    height: 150px;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.produto h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.produto p {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.produto:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.produto:hover img {
+    transform: scale(1.1);
+}
+
+.produto h3, .produto p {
+    transition: color 0.3s ease;
+}
+
+.produto:hover h3, .produto:hover p {
+    color: #ff5a5f;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.icone-carrinho {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #ff5a5f;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+  z-index: 1100;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  position: fixed;
+}
+
+
+#quantidade-carrinho {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.carrinho-flutuante {
+  position: fixed;
+  top: 80px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.1); /* Transparência */
+  backdrop-filter: blur(15px); /* Vidro fosco */
+  -webkit-backdrop-filter: blur(15px);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  width: 300px;
+  max-height: 80vh;
+  overflow-y: auto;
+  display: none;
+  z-index: 1100;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.carrinho-flutuante button {
+  background-color: #ff5a5f;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carrinho-flutuante button:hover {
+  background-color: #e14c50;
+}
+
+
+
+  
+
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .catalogo-section {
+        padding: 20px;
+    }
+
+    .produtos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}

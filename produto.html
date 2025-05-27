@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Produto</title>
+  <link rel="stylesheet" href="catalogo.css">
+  <style>
+    .produto-detalhe {
+      max-width: 900px;
+      margin: 120px auto 40px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 30px;
+      color: white;
+      
+    }
+
+    .produto-detalhe img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .avaliacoes p {
+      background: rgba(255,255,255,0.1);
+      padding: 10px;
+      border-radius: 8px;
+      margin: 5px 0;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-weight: bold;
+      border: none;
+      background-color: #ff5a5f;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .fundo-com-overlay {
+     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url(img/pexels-pixabay-325876.jpg) center/cover no-repeat;
+    z-index: -1;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="fundo-com-overlay"></div>
+
+  <header>
+    <div class="logo">TrendWear</div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="produto-detalhe">
+    <img id="imagem-produto" src="" alt="Imagem do Produto">
+    <h1 id="nome-produto"></h1>
+    <p id="descricao-produto"></p>
+    <p><strong>Preço:</strong> R$ <span id="preco-produto"></span></p>
+    <button id="btn-carrinho">Adicionar ao Carrinho</button>
+
+
+    <section class="avaliacoes">
+      <h2>Avaliações</h2>
+      <div id="avaliacoes"></div>
+    </section>
+
+    <button onclick="compartilharProduto()">Compartilhar Produto</button>
+  </main>
+
+  <script>
+    const produto = JSON.parse(localStorage.getItem("produtoSelecionado"));
+
+    if (produto) {
+      document.getElementById("imagem-produto").src = produto.imagem;
+      document.getElementById("nome-produto").textContent = produto.nome;
+      document.getElementById("descricao-produto").textContent = produto.descricao;
+      document.getElementById("preco-produto").textContent = produto.preco.toFixed(2);
+
+      document.getElementById("btn-carrinho").onclick = () => {
+        adicionarAoCarrinho(produto.nome, produto.preco);
+
+        document.getElementById("btn-carrinho").onclick = () => {
+        adicionarAoCarrinho(produto.nome, produto.preco);
+        mostrarCarrinho();
+        };
+
+      };
+
+      const avaliacoes = [
+        "⭐️⭐️⭐️⭐️☆ - Muito bom! - João",
+        "⭐️⭐️⭐️⭐️⭐️ - Super confortável e estiloso! - Ana",
+        "⭐️⭐️⭐️☆☆ - Gostei, mas a entrega demorou. - Lucas"
+      ];
+      document.getElementById("avaliacoes").innerHTML = avaliacoes.map(a => `<p>${a}</p>`).join("");
+    }
+
+    function compartilharProduto() {
+      if (navigator.share) {
+        navigator.share({
+          title: produto.nome,
+          text: produto.descricao,
+          url: window.location.href
+        });
+      } else {
+        alert("Compartilhamento não suportado no navegador.");
+      }
+    }
+  </script>
+
+  <!-- Ícone flutuante do carrinho -->
+<div class="icone-carrinho" onclick="mostrarCarrinho()">
+  🛒
+  <span id="quantidade-carrinho">0</span>
+</div>
+
+<!-- Painel do carrinho -->
+<div id="painel-carrinho" class="carrinho-flutuante">
+  <h2>Seu Carrinho</h2>
+  <ul id="lista-carrinho"></ul>
+  <p>Total: R$ <span id="total-carrinho">0.00</span></p>
+  <button onclick="finalizarCompra()">Finalizar Compra</button>
+</div>
+
+
+  <script src="catalogo.js"></script>
+</body>
+</html>
