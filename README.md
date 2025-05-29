@@ -1,5 +1,7 @@
 # 🧥 TrendWear
 
+![TrendWear Logo](./assets/Logo_trendwear.png)
+
 ![HTML](https://img.shields.io/badge/feito%20com-HTML5-orange)
 ![CSS](https://img.shields.io/badge/estilo-CSS3-blue)
 ![JavaScript](https://img.shields.io/badge/lógica-JavaScript-yellowgreen)
@@ -9,9 +11,6 @@
 ---
 
 ## 📸 Prévia do Projeto
-
-###  Página Catalogo
-![Catalogo Page](./assets/tela_site.png)
 
 ###  Página do Produto
 ![produto Page](./assets/tela_produto.png)
@@ -74,3 +73,4 @@ git clone https://github.com/luispeky/trendwear.git
 cd trendwear
 
 # 3. Abra o arquivo inicial com navegador (ex: home.html)
+
